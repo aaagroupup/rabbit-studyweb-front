@@ -1,0 +1,39 @@
+/*全局样式*/
+HTML,
+BODY,
+#app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.el-card{
+  box-shadow: 0 1px 1px rgba(0,8,10,0.15) !important;
+}
+
+/*表格样式*/
+.el-table{
+  margin-top:15px;
+  font-size: 12px;
+  min-width: 350px;
+}
+.ml-5{
+  margin-left: 5px;
+}
+.mr-5{
+  margin-right: 5px;
+}
+.pd-10{
+  padding: 10px 0;
+}
+.m-10{
+  margin:10px 0;
+}
+a{
+  text-decoration: none;
+  color: #666;
+}
