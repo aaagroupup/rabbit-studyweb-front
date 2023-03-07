@@ -14,15 +14,13 @@
         <el-menu :default-active="'1'"  mode="horizontal" router >
             <el-menu-item index="/front/home">首页</el-menu-item>
             <el-menu-item index="/front/article">话题</el-menu-item>
+            <el-menu-item index="/front/live">直播</el-menu-item>
             <el-submenu index="2">
                 <template slot="title">个人中心</template>
                 <el-menu-item index="/front/course">我的课程</el-menu-item>
                 <el-menu-item index="/front/order">我的订单</el-menu-item>
-
             </el-submenu>
-
-            <el-menu-item index="/front/live">直播</el-menu-item>
-            <el-menu-item index="/front/shoppingCart">购物车</el-menu-item>
+            <el-menu-item index="/front/shoppingCart" style="float: right;margin-right: 30px;">购物车</el-menu-item>
         </el-menu>
         </div>
         <div style="width: 200px;">
@@ -63,7 +61,7 @@
 export default {
     data(){
         return{
-            url:'http://localhost:9382/common/download?name=',
+            url:'http://localhost:9383/common/download?name=',
             user: sessionStorage.getItem("user")?JSON.parse(sessionStorage.getItem("user")) : {},
             username: sessionStorage.getItem("user")?JSON.parse(sessionStorage.getItem("user")).username : "",
             backgroundDiv: {

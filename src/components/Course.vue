@@ -6,29 +6,29 @@
         <el-form :inline="true" :model="searchData" class="demo-form-inline">
           <el-form-item label="课程类别">
             <!-- 一级分类 -->
-            <el-select v-model="searchData.subjectPId" @change="subjectLevelOneChanged" placeholder="请选择" >
+            <el-select style="width: 220px;" v-model="searchData.subjectPId" @change="subjectLevelOneChanged" placeholder="请选择" >
               <el-option v-for="subject in subjectList" :key="subject.id" :label="subject.title" :value="subject.id"></el-option>
             </el-select>
             <!-- 二级分类 -->
-            <el-select v-model="searchData.subjectId" placeholder="请选择" >
+            <el-select style="width: 220px;" v-model="searchData.subjectId" placeholder="请选择" >
               <el-option v-for="subject in subjectLevelTwoList" :key="subject.id" :label="subject.title" :value="subject.id"></el-option>
             </el-select>
           </el-form-item>
           <el-form-item label="标题">
-            <el-input v-model="searchData.title" placeholder="请选择"></el-input>
+            <el-input v-model="searchData.title" placeholder="请选择" style="width: 220px;"></el-input>
           </el-form-item>
           <el-form-item label="讲师">
-            <el-select v-model="searchData.teacherId" placeholder="请选择" >
+            <el-select v-model="searchData.teacherId" placeholder="请选择" style="width: 220px;">
               <el-option v-for="teacher in teacherList" :key="teacher.id" :label="teacher.name" :value="teacher.id"></el-option>
             </el-select>
           </el-form-item>
 
           <el-form-item>
-            <el-button type="primary" icon="el-icon-search" @click="getCourseList()">查询</el-button>
-            <el-button type="default" @click="resetData()">清空</el-button> 
+            <el-button style="margin-left: 20px;" type="primary" icon="el-icon-search" @click="getCourseList()">查询</el-button>
+            <el-button  style="margin-left: 20px;" type="default" @click="resetData()">清空</el-button> 
           </el-form-item> 
-          <el-button style="float: right;margin-right: 30px;" type="primary" @click="batchRemove()"> 删除选中 </el-button>
-          <el-button style="float: right;margin-right: 10px;" type="primary" @click="addDialogVisible = true"> 添加课程 </el-button>
+          <el-button style="float: right;margin-right: 20px;" type="primary" @click="addDialogVisible = true"> 添加课程 </el-button> 
+          <el-button style="float: left;margin-left: 10px;" type="primary" @click="batchRemove()"> 删除选中 </el-button>
         </el-form>
       </el-row>
 
@@ -245,7 +245,7 @@
               :limit="1"
               :before-remove="handleBeforeRemove"
               :on-remove="handleOnRemove"
-              :action="this.baseUrl+'vod/upload'"
+              :action="this.baseUrl+'vod/vod/upload'"
             >
             <el-button slot="trigger" size="small" type="primary">选择视频</el-button>
             <el-button 
@@ -462,6 +462,7 @@ export default {
           this.$message.success("添加成功!!!");
           this.addDialogVisible = false;
           this.getCourseList();
+          this.addForm={}
         })
         
         
@@ -589,7 +590,7 @@ export default {
     //上传
     submitUpload(){
       this.uploadBtnDisabled=true
-      this.$refs.upload.submit()//提交上传请求
+      this.$refs.upload.submit()//提交上传请求  
     },
     //视频上传成功的回调
     handleUploadSuccess(res,file,fileList){

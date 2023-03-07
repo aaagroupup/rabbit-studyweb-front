@@ -37,7 +37,7 @@
 export default {
     data(){
         return{
-          baseUrl:'http://localhost:9382/common/',
+          baseUrl:'http://localhost:9383/common/',
           uploadUrl:this.baseUrl+'upload?name=',
           downloadUrl:this.baseUrl+'download?name=',
           form:{},

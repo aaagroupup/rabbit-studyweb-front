@@ -25,8 +25,7 @@
             <el-form-item label="文件">
                 <el-upload :multiple="false"
                     :on-success="onUploadSuccess"
-                    :action="this.baseUrl+'subject/importData'"
-                    class="upload-demo"
+                    :action="importUrl"
                 >
                 <el-button size="small" type="primary">点击上传</el-button>
                 <div slot="tip" class="el-upload__tip">只能上传xls文件，且不超过500kb</div>
@@ -46,7 +45,8 @@
       return {
        dialogImportVisible:false,
         subjectList: [], //课程列表
-        baseUrl:"http://localhost:9382/"
+        baseUrl:"http://localhost:9383/",
+        importUrl:this.baseUrl+"subject/importData"
       };
     },
     created() {

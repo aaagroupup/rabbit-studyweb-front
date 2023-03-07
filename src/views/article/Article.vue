@@ -103,7 +103,7 @@
   export default {
     data() {
       return {
-        downloadUrl:"http://localhost:9382/common/download?name=",
+        downloadUrl:"http://localhost:9383/common/download?name=",
         //查询信息实体
         queryInfo: {
           query: "", //查询信息

@@ -7,14 +7,15 @@
 
         <el-form :inline="true" :model="searchData" class="demo-form-inline">
           <el-form-item label="订单号">
-            <el-input v-model="searchData.number" placeholder="请输入订单号"></el-input>
+            <el-input v-model="searchData.number" placeholder="请输入订单号" style="width: 180px;"></el-input>
           </el-form-item>
           <el-form-item label="手机号">
-            <el-input v-model="searchData.telephone" placeholder="请输入手机号"></el-input>
+            <el-input v-model="searchData.telephone" placeholder="请输入手机号" style="width: 180px;"></el-input>
           </el-form-item>
 
-          <el-form-item>
+          <el-form-item label="时间">
             <el-date-picker
+              style="width: 180px;"
               v-model="searchData.startTime"
               type="date"
               value-format="yyyy-MM-dd"
@@ -23,6 +24,7 @@
           </el-form-item>
           <el-form-item>
             <el-date-picker
+              style="width: 180px;"
               v-model="searchData.endTime"
               type="date"
               value-format="yyyy-MM-dd"
@@ -30,7 +32,7 @@
             </el-date-picker>
           </el-form-item>
           <el-form-item>
-            <el-select style="width:200px" v-model="searchData.status" placeholder="请选择订单状态">
+            <el-select style="width:180px" v-model="searchData.status" placeholder="请选择订单状态">
               <el-option
                 v-for="item in options"
                 :key="item.value"
@@ -41,10 +43,10 @@
           </el-form-item>
 
           <el-form-item>
-            <el-button type="primary" icon="el-icon-search" @click="getOrderList()">查询</el-button>
+            <el-button style="margin-left: 20px;" type="primary" icon="el-icon-search" @click="getOrderList()">查询</el-button>
             <el-button type="default" @click="resetData()">清空</el-button> 
-            <el-button type="primary" @click="batchRemove()">删除选中</el-button>
           </el-form-item> 
+          <el-button style="margin-left: 10px;" type="primary" @click="batchRemove()">删除选中</el-button>
         </el-form>
       </el-row>
 

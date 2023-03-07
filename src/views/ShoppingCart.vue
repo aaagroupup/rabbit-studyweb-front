@@ -10,7 +10,7 @@
         <template slot-scope="{ row }">
             <el-image style="width: 100px; height: 100px; border:none;cursor: pointer;" 
             :src="getImage(row.image)" 
-            :preview-src-list="[ this.downloadUrl+row.image ]" >
+            :preview-src-list="[ `http://localhost:9383/common/upload?name=${row.image}` ]" >
             <div slot="error" class="image-slot">
               <img src="../assets/img/noImg.png"  style="width: auto; height: 40px; border:none;" >
             </div>  
@@ -36,7 +36,7 @@
           </template>
         </el-table-column>
     </el-table>
-    <el-card v-if="shoppingCart.length!=0" class="btn-group">
+    <el-card v-if="this.shoppingCart.length!=0" class="btn-group">
       <div class="item-div">
         <el-checkbox  @change="selectAll">全选</el-checkbox>
         <a class="item-a" @click="batchRemove()"> 删除选中 </a>
@@ -54,7 +54,7 @@ export default {
     return {
       multipleSelection:[],//多选框
       shoppingCart: [], //购物车列表
-      downloadUrl:"http://localhost:9382/common/download?name="
+      downloadUrl:"http://localhost:9383/common/download?name="
     };
   },
   created() {

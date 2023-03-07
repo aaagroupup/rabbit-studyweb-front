@@ -166,7 +166,7 @@
       return {
         content:'',
         imageUrl: '',
-        downloadUrl:"http://localhost:9381/common/download?name=",
+        downloadUrl:"http://localhost:9383/common/download?name=",
         //查询信息实体
         queryInfo: {
           query: "", //查询信息

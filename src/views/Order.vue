@@ -60,7 +60,7 @@ export default {
       }
     },
     pay(row){
-      window.open("http://localhost:9382/aliPay/pay?subject="+row.id+"&traceNo="+row.number+"&totalAmount="+row.amount)
+      window.open("http://localhost:9383/aliPay/pay?subject="+row.id+"&traceNo="+row.number+"&totalAmount="+row.amount)
     },
   },
 };
