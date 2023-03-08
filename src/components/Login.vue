@@ -17,11 +17,11 @@
       >
         <!--用户名 -->
         <el-form-item prop="username">
-          <el-input class="form-item" v-model="loginForm.username" prefix-icon="iconfont icon-denglu" placeholder="请输入用户名"></el-input>
+          <el-input class="form-item" clearable v-model="loginForm.username" prefix-icon="iconfont icon-denglu" placeholder="请输入用户名"></el-input>
         </el-form-item>
         <!-- 密码 -->
         <el-form-item prop="password">
-          <el-input class="form-item" v-model="loginForm.password" prefix-icon="iconfont icon-mima" type="password" placeholder="请输入密码" show-password ></el-input>
+          <el-input class="form-item" clearable v-model="loginForm.password" prefix-icon="iconfont icon-mima" type="password" placeholder="请输入密码" show-password ></el-input>
         </el-form-item>
         <el-form-item></el-form-item>
         <!-- 按钮 -->
@@ -73,9 +73,7 @@ export default {
       isActiveIndex:0,
       //背景图片
       backgroundDiv: {
-        backgroundImage: "url(" + require("@/assets/img/bg_login.jpg") + ")",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "100% 100%",
+        backgroundImage: "url(" + require("@/assets/img/login.gif") + ")",
       },
       //表单数据对象
       loginForm: {
@@ -90,7 +88,7 @@ export default {
       loginRules: {
         //校验用户名
         username: [
-          { required: true, message: "请输入用户名", trigger: "blur" }, //必填项验证
+          { required: true, message: "请输入用户名", trigger: "blur"}, //必填项验证
           {min: 5,max: 13,message: "长度在 5 到 13 个字符", trigger: "blur",},
         ],
         //校验密码
@@ -195,7 +193,7 @@ export default {
 <style lang="less" scoped>
 // 改变input里的字体颜色
 /deep/input::-webkit-input-placeholder {
-  color: #bbebb1;
+  color: #bbebb1e5;
   font-size: 15px;
 }
 
@@ -204,12 +202,15 @@ export default {
   background-color: transparent !important;
   border: 1px solid #8ef7f1;
 }
-
+//改变校验样式
+/deep/ .el-form-item__error{
+  margin-left: 130px;
+}
 .login_title{
     text-align: center;
     padding-top: 80px;
     font-size: 30px;
-    color: #666;
+    color: rgb(161, 158, 158);
 }
 .login_title span{
     margin: 0 20px 0 20px;
@@ -238,14 +239,13 @@ export default {
 }
 // 根节点样式
 .login_container {
-  background-color: #cca5e0;
   height: 100%;
 }
 
 .login_box {
   width: 670px;
   height: 430px;
-  background-color: rgba(0, 0, 0, 0.658);
+  background-color: rgba(0, 0, 0, 0.637);
   border-radius: 3px;
   position: absolute;
   left: 50%;

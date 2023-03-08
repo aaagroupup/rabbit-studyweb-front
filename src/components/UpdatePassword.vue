@@ -62,8 +62,6 @@ export default {
       //背景图片
       backgroundDiv:{
         backgroundImage: 'url(' + require('@/assets/img/bg_update.jpg') + ')',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: '100% 100%'
       },
       //表单数据对象
       form: {
@@ -124,7 +122,7 @@ export default {
 
 // 改变input里的字体颜色
 /deep/input::-webkit-input-placeholder {
-  color: #86d4df;
+  color: rgb(59, 49, 30);
   font-size: 15px;
 }
 
@@ -133,9 +131,12 @@ export default {
   background-color: transparent !important;
   border: 1px solid #b3b4b9;
 }
+//改变校验样式
+/deep/ .el-form-item__error{
+  margin-left: 100px;
+}
 // 根节点样式
 .password_container {
-  background-color: #7ed8df;
   height: 100%;
 }
 .item-form{
@@ -154,7 +155,7 @@ export default {
 .password_box {
   width: 600px;
   height: 400px;
-  background-color:rgba(0, 0, 0, 0.658);
+  background-color:rgba(0, 0, 0, 0.473);
   border-radius: 3px;
   position: absolute;
   left: 50%;
@@ -165,7 +166,7 @@ export default {
     text-align: center;
     padding-top: 40px;
     font-size: 30px;
-    color: rgb(220, 236, 160);
+    color: rgb(211, 188, 145)
 }
 .password_form {
   position: absolute;
@@ -193,7 +194,7 @@ export default {
             outline: none;
         }    
 .btn-7 {
-            background: linear-gradient(0deg, rgba(255, 151, 0, 1) 0%, rgba(251, 75, 2, 1) 100%);
+            background: linear-gradient(0deg, rgb(151, 139, 120) 0%, rgba(151, 139, 120) 100%);
             line-height: 42px;
             padding: 0;
             border: none;
@@ -212,7 +213,7 @@ export default {
             content: "";
             right: 0;
             bottom: 0;
-            background: rgba(251, 75, 2, 1);
+            background: rgb(236, 186, 186);
             box-shadow: -7px -7px 20px 0px rgba(255, 255, 255, .9), -4px -4px 5px 0px rgba(255, 255, 255, .9), 7px 7px 20px 0px rgba(0, 0, 0, .2), 4px 4px 5px 0px rgba(0, 0, 0, .3);
             transition: all 0.3s ease;
         }
@@ -228,7 +229,7 @@ export default {
         }
         
         .btn-7:hover {
-            color: rgba(251, 75, 2, 1);
+            color: rgb(41, 36, 28);
             background: transparent;
         }
         

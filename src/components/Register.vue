@@ -155,7 +155,7 @@ export default {
 <style lang="less" scoped>
 // 改变input里的字体颜色
 /deep/input::-webkit-input-placeholder {
-  color: #ce889f;
+  color: #d3d0a7;
   font-size: 15px;
 }
 
@@ -163,6 +163,10 @@ export default {
 /deep/.el-input__inner {
   background-color: transparent !important;
   border: 1px solid #b3b4b9;
+}
+//改变校验样式
+/deep/ .el-form-item__error{
+  margin-left: 100px;
 }
 .item-form{
   width: 600px;
@@ -176,12 +180,12 @@ export default {
     text-align: center;
     padding-top: 40px;
     font-size: 30px;
-    color: rgb(224, 161, 211);
+    color: rgb(248, 235, 163);
 }
 .register_box {
   width: 800px;
   height: 600px;
-  background-color:rgba(0, 0, 0, 0.555);
+  background-color:rgba(0, 0, 0, 0.479);
   border-radius: 3px;
   position: absolute;
   left: 50%;
@@ -222,8 +226,8 @@ export default {
         }      
 .btn-11 {
             border: none;
-            background: rgb(251, 33, 117);
-            background: linear-gradient(0deg, rgba(251, 33, 117, 1) 0%, rgba(234, 76, 137, 1) 100%);
+            background: rgb(245, 230, 145);
+            background: linear-gradient(0deg, rgba(245, 230, 145) 0%, rgb(240, 152, 186) 100%);
             color: #fff;
             overflow: hidden;
         }

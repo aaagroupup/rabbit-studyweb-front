@@ -1,8 +1,8 @@
 <template>
   <div :style="backgroundDiv">
     <!-- 头部 -->
-    <div style="display: flex;height: 60px;line-height: 60px;border-bottom: 1px solid #eee;">
-        <div style="width: 300px;display: flex;padding-left: 30px;">
+    <div class="container_head">
+        <div class="head_left">
             <div style="width: 60px;">
                 <img src="../assets/img/卖萌.gif" style="width: 50px;position: relative;top:5px"/>
             </div>
@@ -20,7 +20,7 @@
                 <el-menu-item index="/front/course">我的课程</el-menu-item>
                 <el-menu-item index="/front/order">我的订单</el-menu-item>
             </el-submenu>
-            <el-menu-item index="/front/shoppingCart" style="float: right;margin-right: 30px;">购物车</el-menu-item>
+            <el-menu-item index="/front/shoppingCart" class="shopping_cart">购物车</el-menu-item>
         </el-menu>
         </div>
         <div style="width: 200px;">
@@ -29,23 +29,24 @@
                 <el-button @click="$router.push('/register')">注册</el-button>
             </div>
             <div v-else>
-                <el-dropdown style="widows: 150px;cursor: pointer;text-align: right;">
+                <el-dropdown class="dropdown">
                     <div style="display:inline-block;">
-                        <img :src="url+user.avatarUrl" style="width: 30px;border-radius: 50%;position: relative;top: 10px;right: 5px;"/>
+                        <img :src="url+user.avatarUrl" class="dropdown_img"/>
                         <span>{{user.nickname}}</span><i class="el-icon-arrow-down" style="margin-left: 5px"></i>
                     </div>
                     <el-dropdown-menu slot="dropdown" style="width: 100px; text-align: center">
                         <el-dropdown-item style="font-size:14px; padding: 5px 0;">
-                            <router-link style="text-decoration: none;color: back;" to="/front/person">修改个人信息</router-link>   
+                            <router-link style="text-decoration: none;color: back;" to="/front/person">个人信息</router-link>   
                         </el-dropdown-item>
                         <el-dropdown-item style="font-size:14px; padding: 5px 0;">
                             <router-link style="text-decoration: none;color: back;" to="/front/Password">修改密码</router-link>   
                         </el-dropdown-item>
-                        <el-dropdown-item style="font-size:14px;padding: 5px 0;">
-                            <span style="text-decoration: none;" @click="logout">退出</span>
-                        </el-dropdown-item>  
                     </el-dropdown-menu>
                 </el-dropdown>
+                <div class="logout">
+                    <a style="cursor: pointer;font-size: 14px;" @click="logout">退出</a>
+                </div>
+                
             </div>
             
         </div>
@@ -76,7 +77,7 @@ export default {
         logout(){
             window.sessionStorage.removeItem("user")
             window.sessionStorage.clear();//清除所有session
-            this.$router.push("/login"); //回到首页
+            this.$router.go(0); //回到首页
         },
         getUser(){
             if(this.username){
@@ -92,6 +93,33 @@ export default {
 </script>
 
 <style>
+.container_head{
+    display: flex;
+    height: 60px;
+    line-height: 60px;
+    border-bottom: 1px solid #eee;
+}
+.head_left{
+    width: 300px;
+    display: flex;
+    padding-left: 30px;
+}
+.shopping_cart{
+    float: right;
+    margin-right: 30px;
+}
+.dropdown{
+    widows: 150px;
+    cursor: pointer;
+    text-align: right;
+}
+.dropdown_img{
+    width: 30px;
+    border-radius: 50%;
+    position: relative;
+    top: 10px;
+    right: 5px;
+}
 .item{
     display: inline-block;
     width: 100px;
@@ -105,4 +133,12 @@ export default {
 .item:hover{
     background-color: lightcoral;
 }
+.logout{
+    float: right;
+    margin-right: 80px;
+    
+}
+a:hover{
+        color:red;
+    }
 </style>
