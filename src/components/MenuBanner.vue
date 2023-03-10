@@ -32,11 +32,7 @@
                     :key="item.id"
                     :value="item.id"
                 >
-                    <a v-if="!isPurchase" :href="'/front/course/buyCourse?id='+item.id">
-                        <img :src="item.cover" :alt="item.title"/>
-                        <span>{{ item.title }}</span>
-                    </a>
-                    <a v-else  :href="'/front/course/course_detail?id='+item.id">
+                    <a :href="'/front/course/buyCourse?id='+item.id">
                         <img :src="item.cover" :alt="item.title"/>
                         <span>{{ item.title }}</span>
                     </a>
@@ -49,7 +45,7 @@
         <el-carousel height="450px" :interval="3000">
             <el-carousel-item v-for="item in banners" :key="item.id">
               <a :href="item.url">
-                <img :src="item.src" alt="" style="width: 100%;"/>
+                <img :src="item.src" alt="" style="width: 100%;height: 100%;"/>
               </a>
             </el-carousel-item>
         </el-carousel>
@@ -68,7 +64,7 @@ export default {
             menus:[],
             banners:[],
             courses:{},
-            isPurchase:false,//是否购买
+            user: sessionStorage.getItem("user")?JSON.parse(sessionStorage.getItem("user")) : {},
         }
     },
     created(){
@@ -85,7 +81,7 @@ export default {
             this.menus.push({   
               value:course.title,
               type:course.id,
-              url:"/front/course/searchResult/"+course.title
+              url:''
             });
             //处理图片路径
             for(let i=0;i<course.courseList.length;i++){
@@ -100,8 +96,8 @@ export default {
           for (let index = 0; index < homeAdvertisesList.length; index++) {
             const adver = homeAdvertisesList[index];
             this.banners.push({
-              src:this.downloadUrl+adver.img,
-              url:adver.url
+              src:this.downloadUrl+adver.cover,
+              url:"/front/course/buyCourse?id="+adver.id
             })
           }
         });

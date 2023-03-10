@@ -10,6 +10,8 @@ import FrontHome from "../views/Home.vue"
 import Front from '../views/Front.vue'
 import ShoppingCart from '@/views/ShoppingCart'
 import Order from '@/views/Order'
+//引入alert
+import { Message } from 'element-ui';
 
 
 Vue.use(VueRouter);
@@ -153,8 +155,11 @@ router.beforeEach((to, from, next) => {
     
   //获取user
   const userFlag = window.sessionStorage.getItem("user"); //取出当前用户
-  //console.log(userFlag)
-  if (!userFlag) return next("/login"); //无值,返回登录页
+  if (!userFlag){
+    //无值,返回登录页
+    Message.warning("请您先登录!")
+    return next("/login"); 
+  }
   next(); //符合要求，放行
 });
 

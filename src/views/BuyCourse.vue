@@ -30,7 +30,7 @@
             </div>
             <div v-else class="btn-group">
               <button class="btn change change1" style="margin-left: 200px;">
-                <a href="javascript:;" @click="addMyCourse">添加课程</a>
+                <a href="javascript:;" @click="addMyCourse">加入课程</a>
               </button>
             </div>
           </div> 
@@ -123,7 +123,7 @@ import Comment from "../components/Comment.vue"
       addMyCourse(){
         this.$http.get(`/userCourse/find/${this.user.id}/${this.id}`).then(res=>{
           if(res.data.flag==400){
-            this.$http.put(`/userCourse/add/${this.user.id}/${this.id}`).then(res=>{
+            this.$http.put(`/course/addFreeCourse/${this.user.id}/${this.id}`).then(res=>{
               if(res.data.flag==200){
                 this.$message.success(res.data.data)
               }else{

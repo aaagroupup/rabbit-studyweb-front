@@ -14,8 +14,8 @@
             
         </el-form>
         <div style="text-align: center">
-            <el-button type="primary" @click="cancelUpdate">取消修改</el-button>
-            <el-button type="primary" @click="updatePassword">确定修改</el-button>
+            <button class="custom-btn btn-2" @click="cancelUpdate">取消</button>
+          <button class="custom-btn btn-2" style="margin-left: 20px;" @click="updatePassword">修改</button>
         </div>
       </el-card>
     </div>
@@ -96,4 +96,36 @@ export default{
     height: 138px;
     display: block;
 }
+.custom-btn {
+            width: 110px;
+            height: 40px;
+            color: #fff;
+            border-radius: 5px;
+            padding: 10px 25px;
+            font-family: 'Lato', sans-serif;
+            font-weight: 500;
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
+            box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5), 7px 7px 20px 0px rgba(0, 0, 0, .1), 4px 4px 5px 0px rgba(0, 0, 0, .1);
+            outline: none;
+        }
+/* 2 */
+        
+.btn-2 {
+            background: rgb(194, 178, 219);
+            background: linear-gradient(0deg, rgb(151, 128, 189) 0%, rgba(151, 128, 189) 100%);
+            border: none;
+        }
+        
+        .btn-2:before {
+            height: 0%;
+            width: 2px;
+        }
+        
+        .btn-2:hover {
+            box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .5), -4px -4px 6px 0 rgba(116, 125, 136, .5), inset -4px -4px 6px 0 rgba(255, 255, 255, .2), inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
+        }        
 </style>
