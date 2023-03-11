@@ -11,16 +11,16 @@
         </div>
         <div style="flex:1">
         <!-- 导航菜单 -->
-        <el-menu :default-active="'1'"  mode="horizontal" router >
-            <el-menu-item index="/front/home">首页</el-menu-item>
-            <el-menu-item index="/front/article">话题</el-menu-item>
-            <el-menu-item index="/front/live">直播</el-menu-item>
+        <el-menu :default-active="'1'" mode="horizontal" router >
+            <el-menu-item index="/front/home"  class="iconfont icon-shouyefill">首页</el-menu-item>
+            <el-menu-item index="/front/article" class="iconfont icon-huati">话题</el-menu-item>
+            <el-menu-item index="/front/live" class="iconfont icon-15">直播</el-menu-item>
             <el-submenu index="2">
                 <template slot="title">个人中心</template>
                 <el-menu-item index="/front/course">我的课程</el-menu-item>
                 <el-menu-item index="/front/order">我的订单</el-menu-item>
             </el-submenu>
-            <el-menu-item index="/front/shoppingCart" class="el-icon-shopping-cart-2" style="float: left; margin-right: 20px;">购物车</el-menu-item>
+            <el-menu-item index="/front/shoppingCart" class="iconfont icon-gouwuche" style="float: right;margin-right: 20px;">购物车</el-menu-item>
         </el-menu>
         </div>
         <div style="width: 200px;">
@@ -131,7 +131,7 @@ export default {
 }
 .logout{
     float: right;
-    margin-right: 80px;
+    margin-right: 70px;
     
 }
 a:hover{

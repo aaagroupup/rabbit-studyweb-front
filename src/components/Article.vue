@@ -26,7 +26,7 @@
           <!-- 添加按钮 -->
           <el-col :span="4">
             <el-button type="primary" @click="addDialogVisible = true">
-              添加文章
+              添加公告
             </el-button>
           </el-col>
         </el-row>
@@ -35,7 +35,7 @@
         <el-table :data="articleList" border stripe>
           <el-table-column type="index"></el-table-column
           ><!--索引列  -->
-          <el-table-column label="文章名称" prop="name"></el-table-column>
+          <el-table-column label="话题名称" prop="name"></el-table-column>
           
           <el-table-column label="文章内容" prop="content">
             <template slot-scope="scope">
@@ -81,7 +81,7 @@
 
         <!-- 新增文章区域 -->
         <el-dialog
-          title="添加文章"
+          title="添加公告"
           :visible.sync="addDialogVisible"
           width="60%"
           @close="addDialogClosed"
@@ -111,7 +111,7 @@
   
         <!-- 修改对话框 -->
         <el-dialog
-          title="修改文章信息"
+          title="修改公告信息"
           :visible.sync="updateDialogVisible"
           width="60%"
           @close="updateDialogClosed"
@@ -140,7 +140,7 @@
           </span>
         </el-dialog>
 
-      <el-dialog title="文章信息" :visible.sync="viewDialogVisible" width="60%">
+      <el-dialog title="公告信息" :visible.sync="viewDialogVisible" width="60%">
         <el-card>
           <div>
             <mavon-editor 

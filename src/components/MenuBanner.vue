@@ -1,56 +1,55 @@
 <template>
-    <div class="menu-banner">
-        <div class="menu-container" @mouseleave="bannerMenuHide()">
-            <!-- 循环所有分类 -->
-            <ul class="menu-list">
-                <li 
-                    class="list-item"
-                    v-for="item in menus"
-                    :key="item.id"
-                    @mouseenter="bannerMenuShow(item.type)"
-                >
-                    <a :href="item.url">{{ item.value }}</a>
-                    <i class="fa fa-angle-right"></i>
-                </li>
-            </ul>
-        </div>
-        <div
-            class="menu-info"
-            v-show="bannerMenuFlag"
-            @mouseleave="bannerMenuHide()"
-            @mouseenter="bannerMenuShow()"
+  <div class="menu-banner">
+    <div class="menu-container" @mouseleave="bannerMenuHide()">
+      <!-- 循环所有分类 -->
+      <ul class="menu-list">
+        <li 
+          class="list-item"
+          v-for="item in menus"
+          :key="item.id"
+          @mouseenter="bannerMenuShow(item.type)"
         >
-            <ul
-                class="menu-info-list"
-                v-for="list in menuListMatch"
-                :key="list.id"
-                :value="list.id"
-            >
-                <li
-                    class="info-list-item"
-                    v-for="item in list"
-                    :key="item.id"
-                    :value="item.id"
-                >
-                    <a :href="'/front/course/buyCourse?id='+item.id">
-                        <img :src="item.cover" :alt="item.title"/>
-                        <span>{{ item.title }}</span>
-                    </a>
-                    
-                </li>
-            </ul>
-        </div>
-        <!-- 走马灯 -->
-        <div style="margin: 10px; 0">
-        <el-carousel height="450px" :interval="3000">
-            <el-carousel-item v-for="item in banners" :key="item.id">
-              <a :href="item.url">
-                <img :src="item.src" alt="" style="width: 100%;height: 100%;"/>
-              </a>
-            </el-carousel-item>
-        </el-carousel>
+          <a :href="item.url">{{ item.value }}</a>
+          <i class="fa fa-angle-right"></i>
+        </li>
+      </ul>
     </div>
+    <div
+      class="menu-info"
+      v-show="bannerMenuFlag"
+      @mouseleave="bannerMenuHide()"
+      @mouseenter="bannerMenuShow()"
+      >
+        <ul
+          class="menu-info-list"
+          v-for="list in menuListMatch"
+          :key="list.id"
+          :value="list.id"
+        >
+          <li
+            class="info-list-item"
+            v-for="item in list"
+            :key="item.id"
+            :value="item.id"
+          >
+            <a :href="'/front/course/buyCourse?id='+item.id">
+                <img :src="item.cover" :alt="item.title"/>
+                <span>{{ item.title }}</span>
+            </a>       
+          </li>
+        </ul>
     </div>
+    <!-- 走马灯 -->
+    <div style="margin: 10px 0;">
+      <el-carousel height="450px" :interval="3000" style="width: 1000px;">
+        <el-carousel-item v-for="item in banners" :key="item.id">
+          <a :href="item.url">
+            <img :src="item.src" alt="" style="width: 100%;height: 100%;"/>
+          </a>
+        </el-carousel-item>
+      </el-carousel>
+    </div>
+  </div>
 </template> 
 
 <script>    
@@ -149,7 +148,7 @@ export default {
 
 .menu-list {
   padding: 20px 0;
-  height: 420px;
+  height: 450px;
   .list-item {
     display: flex;
     padding-left: 30px;

@@ -30,22 +30,20 @@
         <div style="margin: 10px 0; padding-top: 20px;">
           <div style="border-bottom: 1px solid orangered;padding: 10px 0;font-size: 22px;">评论</div>
           <div style="padding-top: 20px;">
-            <el-button type="text" style="float: right; margin-right: 10px;" class="btn" size="mini" @click="showEmojiDialog = !showEmojiDialog">😃</el-button>
-            <el-input id="input" type="textarea" v-model="commentForm.content"  placeholder="善于结善缘，恶语伤人心"></el-input>
+            <el-input id="input" type="textarea" v-model="commentForm.content"  placeholder="发一条友善的评论" style="width:880px;height: 60px;"></el-input>
+            <button class="c-btn change change1" type="primary" @click="saveComment">评论</button> 
             <VEmojiPicker v-show="showEmojiDialog" @select="selectEmoji"/>
           </div>
-          <div class="pd-10" style="text-align: right;">
-            <el-button type="primary" @click="saveComment">评论</el-button>
-          </div>
+          <el-button type="text" style="float: left; margin-left: 10px;" size="mini" @click="showEmojiDialog = !showEmojiDialog">😃</el-button>
         </div>
 
         <!-- 评论列表 -->
-        <div>
+        <div style="padding-top: 40px;">
           <div v-for="item in comments" :key="item.id" style="border-bottom: 1px solid #ccc;padding: 10px 0;">
             <div style="display: flex;">
               <!--头像-->
               <div style="width:100px;text-align: center;">
-                <el-image :src="item.avatarUrl" style="width:50px;height: 50px;border-radius: 50%;"></el-image>
+                <el-image :src="item.avatar" style="width:50px;height: 50px;border-radius: 50%;"></el-image>
               </div>
               <!--内容-->
               <div style="flex:1;font-size: 14px;padding: 5px 0;line-height: 25px;">
@@ -63,10 +61,13 @@
               </div>
             </div>
 
-            <div v-if="item.children.length" style="padding-left: 110px;">
+            <div v-if="item.children.length" style="padding-left: 50px;">
               <div v-for="subItem in item.children" :key="subItem.id" style="padding: 5px 10px;">
                 <!-- 回复列表 -->
                 <div style="font-size: 14px;padding: 5px 0;line-height: 25px;">
+                  <div style="width:100px;text-align: center; float: left;">
+                    <el-image :src="subItem.avatar" style="width:50px;height: 50px;border-radius: 50%;"></el-image>
+                  </div>
                   <div style="padding-left: 5px;">
                     回复 <b style="color:#3a8ee6" v-if="subItem.pnickname">@{{subItem.pnickname}}</b>
                   </div>
@@ -232,6 +233,36 @@
   };
   </script>
   
-  <style lang="less" scoped>
+<style lang="less" scoped>
+/deep/textarea::-webkit-input-placeholder {
+  color: #86d4df;
+  font-size: 15px;
+}
+  // 改变input框背景颜色
+/deep/.el-textarea__inner {
+  background-color: transparent !important;
+  border: 1px solid #bae7c9;
+}
+.c-btn{
+	background-color:rgb(154, 224, 241);
+	border:rgb(154, 224, 241) 1px solid;
+    border-radius: 5%;
+	outline:none;  /*去除点击时的蓝色边框*/
+	cursor:pointer;
+	color:rgba(255,255,255,1);
+	text-align: center;
+	font-size: 16px;
+	margin:10px;
+  width: 100px;
+  height: 50px;
+}
+.change{
+	 transition: all 0.5s;
+    -webkit-transition: all 0.5s; /* Safari */
+}
+.change1:hover{
+	background-color:rgba(0,180,100,0.1);
+	color:rgb(0,0,0);	
+}
   </style>
   

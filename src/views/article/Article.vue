@@ -30,7 +30,7 @@
 
           <el-col :span="4">
             <el-button icon="el-icon-edit" style="margin-left: 90px;" type="danger" @click="addDialogVisible = true">
-              发布文章
+              发布话题
             </el-button>
           </el-col>
         </el-row>

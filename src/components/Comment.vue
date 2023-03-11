@@ -17,7 +17,7 @@
           <div style="display: flex;">
             <!--头像-->
             <div style="width:100px;text-align: center;">
-              <el-image :src="item.avatarUrl" style="width:50px;height: 50px;border-radius: 50%;"></el-image>
+              <el-image :src="item.avatar" style="width:50px;height: 50px;border-radius: 50%;"></el-image>
             </div>
             <!--内容-->
             <div style="flex:1;font-size: 14px;padding: 5px 0;line-height: 25px;">
@@ -41,7 +41,7 @@
               <div style="font-size: 14px;padding: 5px 0;line-height: 25px;">
                  <!--头像-->
                  <div style="width:100px;text-align: center; float: left;">
-                  <el-image :src="item.avatarUrl" style="width:50px;height: 50px;border-radius: 50%;"></el-image>
+                  <el-image :src="item.avatar" style="width:50px;height: 50px;border-radius: 50%;"></el-image>
                 </div>
                 <div style="padding-left: 5px;">
                   回复 <b style="color:#3a8ee6" v-if="subItem.pnickname">@{{subItem.pnickname}}</b>
