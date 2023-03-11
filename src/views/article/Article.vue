@@ -85,7 +85,7 @@
   
             <!-- 文章内容 -->
             <el-form-item label="文章内容" prop="content">
-              <mavon-editor ref='md' v-model="addForm.content" :ishljs="true" @imgAdd="imgAdd"></mavon-editor>
+              <mavon-editor ref='md' v-model="addForm.content" :ishljs="true" @imgAdd="$imgAdd"></mavon-editor>
             </el-form-item>
           </el-form>
           <!-- 内容底部区域 -->
@@ -99,11 +99,13 @@
   </template>
   
   <script>
+import axios from 'axios';
+
 
   export default {
     data() {
       return {
-        downloadUrl:"http://localhost:9383/common/download?name=",
+        downloadUrl:"https://rabbit-studyweb.oss-cn-hangzhou.aliyuncs.com/",
         //查询信息实体
         queryInfo: {
           query: "", //查询信息
@@ -151,16 +153,19 @@
         this.queryInfo.currentPage = newPage;
         this.getArticleList();
       },
-      imgAdd(pos,$file){
-            let $vm=this.$refs.md
-            //第一步，将图片上传到服务器
-            const formData = new FormData();
-            const url=this.downloadUrl
-            formData.append("file",$file);
-            this.$http.post("/common/upload",formData,{headers:{'Content-Type':'multipart/form-data'}}).then(res=>{
-                //第二步，将返回的url替换到文本的原位置
-                $vm.$img2Url(pos,url+res.data.data)//拼接地址，在右侧展示图片
-            })
+      $imgAdd(pos,$file){
+        //第一步，将图片上传到服务器
+        var formData=new FormData();
+        formData.append('file',$file)
+        //必须使用原生axios
+        let instance= axios.create({
+          baseURL: 'http://localhost:9381',
+          data: formData,        
+          headers: { 'Content-Type': 'multipart/form-data'}
+        })
+        instance.post('/common/upload',formData).then(res=>{
+          this.$refs.md.$img2Url(pos,this.downloadUrl+res.data.data)
+        })
       },
       //监听添加文章
       addDialogClosed() {

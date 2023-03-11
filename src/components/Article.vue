@@ -161,12 +161,13 @@
   </template>
   
   <script>
+  import axios from 'axios';
   export default {
     data() {
       return {
         content:'',
         imageUrl: '',
-        downloadUrl:"http://localhost:9383/common/download?name=",
+        downloadUrl:"https://rabbit-studyweb.oss-cn-hangzhou.aliyuncs.com/",
         //查询信息实体
         queryInfo: {
           query: "", //查询信息
@@ -218,17 +219,19 @@
         this.content=content
         this.viewDialogVisible=true
       },
-        imgAdd(pos,$file){
-            let $vm=this.$refs.md
-            //第一步，将图片上传到服务器
-            const formData = new FormData();
-            const url=this.downloadUrl
-            formData.append("file",$file);
-            this.$http.post("/common/upload",formData,{headers:{'Content-Type':'multipart/form-data'}}).then(res=>{
-                //第二步，将返回的url替换到文本的原位置
-                $vm.$img2Url(pos,url+res.data.data)//拼接地址，在右侧展示图片
-            })
-        },
+      imgAdd(pos,$file){
+        //第一步，将图片上传到服务器
+        var formData = new FormData();
+        formData.append("file",$file);
+        let instance= axios.create({
+          baseURL: 'http://localhost:9381',
+          data: formData,        
+          headers: { 'Content-Type': 'multipart/form-data'}
+        })
+        instance.post('/common/upload',formData).then(res=>{
+          this.$refs.md.$img2Url(pos,this.downloadUrl+res.data.data)
+        })
+      },
       // 获取所有文章
       async getArticleList() {
         const { data: res } = await this.$http.get("article/articles", {

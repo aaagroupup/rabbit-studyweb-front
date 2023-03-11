@@ -20,7 +20,7 @@
                 <el-menu-item index="/front/course">我的课程</el-menu-item>
                 <el-menu-item index="/front/order">我的订单</el-menu-item>
             </el-submenu>
-            <el-menu-item index="/front/shoppingCart" class="shopping_cart">购物车</el-menu-item>
+            <el-menu-item index="/front/shoppingCart" class="el-icon-shopping-cart-2" style="float: left; margin-right: 20px;">购物车</el-menu-item>
         </el-menu>
         </div>
         <div style="width: 200px;">
@@ -62,7 +62,7 @@
 export default {
     data(){
         return{
-            url:'http://localhost:9383/common/download?name=',
+            url:"https://rabbit-studyweb.oss-cn-hangzhou.aliyuncs.com/",
             user: sessionStorage.getItem("user")?JSON.parse(sessionStorage.getItem("user")) : {},
             username: sessionStorage.getItem("user")?JSON.parse(sessionStorage.getItem("user")).username : "",
             backgroundDiv: {
@@ -103,10 +103,6 @@ export default {
     width: 300px;
     display: flex;
     padding-left: 30px;
-}
-.shopping_cart{
-    float: right;
-    margin-right: 30px;
 }
 .dropdown{
     widows: 150px;

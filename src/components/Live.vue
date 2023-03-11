@@ -331,9 +331,7 @@
 export default {
   data() {
     return {
-      
-      baseUrl:"http://localhost:9383/",
-      uploadUrl:this.baseUrl+"common/upload?name=",
+      uploadUrl:"http://localhost:9383/common/upload?name=",
       downloadUrl: 'https://rabbit-studyweb.oss-cn-hangzhou.aliyuncs.com/',
       teacherList:[],
       subjectList:[],

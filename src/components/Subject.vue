@@ -45,8 +45,8 @@
       return {
        dialogImportVisible:false,
         subjectList: [], //课程列表
-        baseUrl:"http://localhost:9383/",
-        importUrl:this.baseUrl+"subject/importData"
+        baseUrl:"http://localhost:9381/",
+        importUrl:"http://localhost:9381/subject/importData"
       };
     },
     created() {

@@ -3,14 +3,19 @@
     <el-card style="widows: 600px;">
         <el-form ref="updateFormRef" :rules="updateFormRules" :model="form"  label-width="80px">
             <div style="text-align: center;margin:10px 0">
-              <el-upload 
+              <el-form-item prop="avatarUrl">
+                <el-upload 
                 :action="uploadUrl" 
                 class="avatar-uploader"
                 :show-file-list="false"
-                :on-success="handlerAvatarSuccess">
+                :on-success="handlerAvatarSuccess"
+                :before-upload="beforeUpload"
+                ref="upload">
                 <img v-if="form.avatarUrl" :src="downloadUrl+this.form.avatarUrl" class="avatar">
                 <i v-else class="el-icon-plus avatar-uploader-icon"></i>
               </el-upload> 
+              </el-form-item>
+              
             </div>
           <el-form-item label="用户名">
             <el-input v-model="form.username" disabled autocomplete="off"></el-input>
@@ -37,9 +42,8 @@
 export default {
     data(){
         return{
-          baseUrl:'http://localhost:9383/common/',
-          uploadUrl:this.baseUrl+'upload?name=',
-          downloadUrl:this.baseUrl+'download?name=',
+          uploadUrl:'http://localhost:9381/common/upload?name=',
+          downloadUrl:"https://rabbit-studyweb.oss-cn-hangzhou.aliyuncs.com/",
           form:{},
           user: sessionStorage.getItem("user") ? JSON.parse(sessionStorage.getItem("user")) : {},
           //修改表单验证
@@ -74,6 +78,22 @@ export default {
             //res是文件的路径
             this.form.avatarUrl=res.data
         },
+        beforeUpload (file) {
+        if(file){
+          const suffix = file.name.split('.')[1]
+          const size = file.size / 1024 / 1024 < 2
+          if(['png','jpeg','jpg'].indexOf(suffix) < 0){
+            this.$message.error('上传图片只支持 png、jpeg、jpg 格式！')
+            this.$refs.upload.clearFiles()
+            return false
+          }
+          if(!size){
+            this.$message.error('上传文件大小不能超过 2MB!')
+            return false
+          }
+          return file
+        }
+    },
         updateUser(){
           this.$refs.updateFormRef.validate(async valid=>{
             if (!valid) return;

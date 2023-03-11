@@ -54,7 +54,7 @@ export default {
     return {
       multipleSelection:[],//多选框
       shoppingCart: [], //购物车列表
-      downloadUrl:"http://localhost:9383/common/download?name="
+      downloadUrl:"https://rabbit-studyweb.oss-cn-hangzhou.aliyuncs.com/"
     };
   },
   created() {
