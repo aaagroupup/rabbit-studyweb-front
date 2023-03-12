@@ -31,6 +31,9 @@ export default{
         }
     },
     mounted(){
+        if(this.id==undefined){
+          this.$router.push({path:'/front/course/course_detail/404',component:()=>import("../components/Error/404.vue")})
+        }
         this.$http.get("/vod/video/getVideoCoverAndUrl/"+this.id).then(res=>{
             const video=res.data.data
             //console.log(res)

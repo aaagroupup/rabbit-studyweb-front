@@ -24,8 +24,8 @@
 
       <!-- 时间 和评分-->
       <div style="margin: 20px 0;">
-        <span style="float: left;">我的评分:&nbsp;&nbsp;</span>
-        <el-rate  v-model="score" :colors="colors" @change="change(score)"></el-rate>
+        <span style="float: left;" v-if="article.type!='公告'">我的评分:&nbsp;&nbsp;</span>
+        <el-rate  v-model="score" v-if="article.type!='公告'" :colors="colors" @change="change(score)"></el-rate>
         <div style="font-size:22px;float: right;">发布时间：{{article.time}}</div>
       </div>
       
@@ -169,9 +169,13 @@
       },
       // 获取所有文章
       getArticle() {
-        this.$http.get("article/"+this.id).then(res=>{
-          this.article = res.data;
-        })
+        if(this.id==undefined){
+          this.$router.push({path:'/front/articleDetail/404',component:()=>import("../../components/Error/404.vue")})
+        }else{
+          this.$http.get("article/"+this.id).then(res=>{
+            this.article = res.data;
+          })
+        }
       },
       getComment(){
         this.$http.get("comment/tree/"+this.id).then(res=>{

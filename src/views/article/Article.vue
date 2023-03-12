@@ -4,10 +4,11 @@
       <el-card>
         <el-row :gutter="25" style="padding-bottom: 20px;"
           ><!--间隙-->
-          <el-col :span="4">
+          <el-col :span="6">
             <div>
               <span class="spn-article" ><a @click="getArticleHot">最热</a></span>
               <span class="spn-article"  style="margin-left: 20px;"><a  @click="getArticleNew">最新</a></span>
+              <span class="spn-article"  style="margin-left: 20px;"><a  @click="getAdv">公告</a></span>
             </div>
           </el-col>
           <el-col :span="14">
@@ -19,7 +20,7 @@
               placeholder="请输入搜索内容"
               v-model="queryInfo.query"
               suffix-icon="el-icon-search" 
-              style="width: 200px;margin-left: 400px;"
+              style="width: 200px;margin-left: 300px;"
               clearable
               @clear="getArticleList"
               @keyup.enter.native="getArticleList"
@@ -28,8 +29,8 @@
             
           </el-col>
 
-          <el-col :span="4">
-            <el-button icon="el-icon-edit" style="margin-left: 90px;" type="danger" @click="addDialogVisible = true">
+          <el-col :span="2">
+            <el-button icon="el-icon-edit" type="danger" @click="addDialogVisible = true">
               发布话题
             </el-button>
           </el-col>
@@ -187,12 +188,22 @@ import axios from 'axios';
       getArticleHot(){
         this.$http.get("article/getArticleByHot",{params:this.queryInfo}).then(res=>{
           this.articleList=res.data.data;
+          this.total = res.data.data2;
         })
       },
       //最新
       getArticleNew(){
         this.$http.get("article/getArticleByTime",{params:this.queryInfo}).then(res=>{
           this.articleList=res.data.data;
+          this.total = res.data.data2;
+        })
+      },
+      //公告
+      getAdv(){
+        this.queryInfo.query="公告"
+        this.$http.get("article/getAdv",{params:this.queryInfo}).then(res=>{
+          this.articleList=res.data.data;
+          this.total = res.data.data2;
         })
       },
     },

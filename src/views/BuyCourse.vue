@@ -79,6 +79,9 @@ import Comment from "../components/Comment.vue"
     },
     methods: {
       getCourseInfo() {
+        if(this.id==undefined){
+          this.$router.push({path:'/front/course/buyCourse/404',component:()=>import("../components/Error/404.vue")})
+        }
         this.$http.get(`/course/detail/${this.id}`).then((res) => {         
           this.course=res.data.data;
           this.course.teacherName=this.course.param.teacherName;

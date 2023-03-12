@@ -117,10 +117,6 @@ export const setRoutes = () => {
     const menus = JSON.parse(storeMenus);
     menus.forEach((item) => {
       let itemMenu = {path: item.path,name: item.name,component: () => import("../components/" + item.pagePath + ".vue"),children:[]};
-      // if(item.pagePath=="Live"){
-      //   //console.log(itemMenu)
-      //   itemMenu.children.push({path:"/config",component:()=>import("../components/LiveConfig.vue")})
-      // }
       manageRoute.children.push(itemMenu)
     });
 
