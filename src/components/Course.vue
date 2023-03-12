@@ -53,9 +53,9 @@
         <el-table-column label="讲师" prop="param.teacherName" width="150px"></el-table-column>
         <el-table-column label="课程简介" prop="description"></el-table-column>
         <el-table-column label="课程价格(单位元)" prop="price" width="150px"></el-table-column>
-        <el-table-column label="发布时间" prop="publishTime" width="170px"></el-table-column>
+        <el-table-column label="发布时间" prop="publishTime" width="170px" sortable></el-table-column>
         <!-- <el-table-column label="课程描述" prop="description"></el-table-column> -->
-        <el-table-column label="课程状态" prop="status" width="130px">
+        <el-table-column label="课程状态" prop="status" width="130px" sortable>
           <!-- 作用域插槽 -->
           <template slot-scope="scope">
             <!-- {{scope.row}}每一行封存的数据 -->

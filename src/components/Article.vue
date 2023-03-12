@@ -43,7 +43,7 @@
             </template>
           </el-table-column>
           <el-table-column label="用户昵称" prop="nickname"></el-table-column>
-          <el-table-column label="发布时间" prop="time"></el-table-column>
+          <el-table-column label="发布时间" prop="time" sortable></el-table-column>
           <el-table-column label="操作">
             <template slot-scope="scope">
               <!-- 修改 -->

@@ -13,7 +13,7 @@
         row-key="id" :load="load"
         :tree-props="{children: 'children', hasChildren: 'hasChildren'}">
           <el-table-column label="名称" prop="title"></el-table-column>
-          <el-table-column label="创建时间" prop="createTime"></el-table-column>
+          <el-table-column label="创建时间" prop="createTime" sortable></el-table-column>
           <el-table-column label="更新时间" prop="updateTime"></el-table-column>
           
         </el-table>

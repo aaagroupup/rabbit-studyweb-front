@@ -57,12 +57,12 @@
         ><!--索引列  -->
         <el-table-column label="订单号" prop="number"></el-table-column>
         <el-table-column prop="username" label="下单人" align="center"></el-table-column>
-        <el-table-column label="下单时间" prop="orderTime" width="150px"></el-table-column>
+        <el-table-column label="下单时间" prop="orderTime" width="150px"  sortable></el-table-column>
         <el-table-column label="订单详情" prop="param.titles"></el-table-column>
         <el-table-column label="电话号" prop="telephone"></el-table-column>
         <el-table-column label="总金额" prop="amount"></el-table-column>
-        <el-table-column label="支付时间" prop="payTime" width="150px"></el-table-column>
-        <el-table-column label="订单状态" prop="status"></el-table-column>
+        <el-table-column label="支付时间" prop="payTime" width="150px" sortable></el-table-column>
+        <el-table-column label="订单状态" prop="status" sortable></el-table-column>
         <el-table-column label="操作">
           <template slot-scope="scope">
             <!-- 删除 -->
@@ -201,8 +201,9 @@ export default {
         }
         this.$message.success(res.data);
         this.getOrderList();
-    }
+    },
   },
+  
 };
 </script>
 
