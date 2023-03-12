@@ -60,10 +60,8 @@
                   </div>
                 </div>
               </div>
-            </div>
-                        
+            </div>             
           </div>
-
         </div>
       </div>
       <div v-else>
@@ -73,18 +71,18 @@
       </div>
     </div>
     <el-dialog title="回复" :visible.sync="viewDialogVisible" width="50%">
-        <el-form label-width="80px" size="small">
-          <el-form-item label="回复内容">
-            <el-button type="text" style="float: right; margin-right: 10px;" size="mini" @click="showEmojiDialogReply = !showEmojiDialogReply">😃</el-button>
-            <el-input type="textarea" id="reply" v-model="commentForm.contentReply" autocomplete="off"  placeholder="善于结善缘，恶语伤人心"></el-input>
-            <VEmojiPicker v-show="showEmojiDialogReply" @select="selectEmojiReply"/>
-          </el-form-item>
-        </el-form>
-        <div slot="footer" class="dialog-footer">
-            <el-button @click="viewDialogVisible=false" >取消</el-button>
-            <el-button type="primary" @click="saveComment">确定</el-button>
-          </div>
-      </el-dialog>
+      <el-form label-width="80px" size="small">
+        <el-form-item label="回复内容">
+          <el-button type="text" style="float: right; margin-right: 10px;" size="mini" @click="showEmojiDialogReply = !showEmojiDialogReply">😃</el-button>
+          <el-input type="textarea" id="reply" v-model="commentForm.contentReply" autocomplete="off"  placeholder="善于结善缘，恶语伤人心"></el-input>
+          <VEmojiPicker v-show="showEmojiDialogReply" @select="selectEmojiReply"/>
+        </el-form-item>
+      </el-form>
+      <div slot="footer" style="padding-bottom: 60px;">
+        <button class="btn" @click="saveComment">确定</button>
+        <button class="btn" @click="viewDialogVisible=false">取消</button>
+      </div>
+    </el-dialog>
   </div>
 </template>
 <script>
@@ -156,8 +154,8 @@ export default{
           if(res.data.flag===200){
             this.$message.success(res.data.data)
             this.commentForm={}//初始化评论内容
-            this.getComment()
             this.viewDialogVisible=false
+            this.getComment()
           }else{
             this.$message.error(res.data.msg)
           }
@@ -202,6 +200,41 @@ export default{
   background-color: transparent !important;
   border: 1px solid #b3b9b5;
 }
+
+//回复按钮
+.btn {
+ background-image: linear-gradient(45deg, #b5f1da 0%, #a2f8f1  51%, #f7f19c  100%)
+}
+
+.btn {
+  float: right;
+  width: 100px;
+  height: 45px;
+ margin: 10px;
+ padding: 1px 30px;
+ text-align: center;
+ text-transform: uppercase;
+ transition: 0.5s;
+ background-size: 200% auto;
+ color: rgb(22, 21, 21);
+ border-radius: 10px;
+ display: block;
+ border: 0px;
+ font-weight: 700;
+ box-shadow: 0px 0px 14px -7px #f5cc92;
+}
+
+.btn:hover {
+ background-position: right center;
+ /* change the direction of the change here */
+ color: #fff;
+ text-decoration: none;
+}
+
+.btn:active {
+ transform: scale(0.95);
+}
+
 .c-btn{
 	background-color:rgb(154, 224, 241);
 	border:rgb(154, 224, 241) 1px solid;
@@ -209,7 +242,7 @@ export default{
 	outline:none;  /*去除点击时的蓝色边框*/
 	cursor:pointer;
 	padding:14px 20px;
-	color:rgba(255,255,255,1);
+	color:rgb(58, 2, 2);
 	text-align: center;
 	font-size: 16px;
 	margin:10px;

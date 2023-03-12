@@ -141,7 +141,7 @@ export default {
     getCode(){
       this.$http.get("/login/sendMsg?phone="+this.form.telephone).then(res=>{
         if(res.data.flag!=200){
-          return this.$message.error(res.data.msg)
+          return this.$message.error("短信发送失败！")
         }
         this.$message.success(res.data.msg)
       })

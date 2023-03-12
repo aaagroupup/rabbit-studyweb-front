@@ -141,7 +141,7 @@ export default {
           //动态设置当前用户路由
           setRoutes();
           //console.log(res.data)
-          if (res.data.role === "普通用户") {
+          if (res.data.roleId === 5) {
             //console.log("跳转成功")
             this.$router.push({ path: "/front/home" }); //页面路由跳转
           } else {

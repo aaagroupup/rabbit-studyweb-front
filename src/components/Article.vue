@@ -26,7 +26,7 @@
           <!-- 添加按钮 -->
           <el-col :span="4">
             <el-button type="primary" @click="addDialogVisible = true">
-              添加公告
+              添加文章
             </el-button>
           </el-col>
         </el-row>
@@ -44,6 +44,7 @@
           </el-table-column>
           <el-table-column label="用户昵称" prop="nickname"></el-table-column>
           <el-table-column label="发布时间" prop="time" sortable></el-table-column>
+          <el-table-column label="类型" prop="type" sortable></el-table-column>
           <el-table-column label="操作">
             <template slot-scope="scope">
               <!-- 修改 -->
@@ -101,6 +102,17 @@
             <el-form-item label="文章内容" prop="content">
               <mavon-editor ref='md' v-model="addForm.content" :ishljs="true" @imgAdd="imgAdd"></mavon-editor>
             </el-form-item>
+            <!-- 类型 -->
+            <el-form-item label="类型" prop="type">
+              <el-select v-model="addForm.type" placeholder="请选择">
+                <el-option
+                  v-for="item in options"
+                  :key="item.value"
+                  :label="item.label"
+                  :value="item.value">
+                </el-option>
+              </el-select>
+            </el-form-item>
           </el-form>
           <!-- 内容底部区域 -->
           <span slot="footer" class="dialog-footer">
@@ -131,7 +143,17 @@
             <el-form-item label="文章内容" prop="content">
               <mavon-editor ref='md' v-model="updateForm.content" :ishljs="true" @imgAdd="imgAdd"></mavon-editor>
             </el-form-item>
-            
+            <!-- 类型 -->
+            <el-form-item label="类型" prop="type">
+              <el-select v-model="updateForm.type" placeholder="请选择">
+                <el-option
+                  v-for="item in options"
+                  :key="item.value"
+                  :label="item.label"
+                  :value="item.value">
+                </el-option>
+              </el-select>
+            </el-form-item>
           </el-form>
           <!-- 内容底部区域 -->
           <span slot="footer" class="dialog-footer">
@@ -209,6 +231,13 @@
             { required: true, message: "请输入文章内容", trigger: "blur" },
           ],
         },
+        options: [{
+          value: '话题',
+          label: '话题'
+        }, {
+          value: '公告',
+          label: '公告'
+        }],
       };
     },
     created() {

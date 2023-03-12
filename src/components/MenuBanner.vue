@@ -153,7 +153,7 @@ export default {
     display: flex;
     padding-left: 30px;
     &:hover {
-      background-color: #ff6700;
+      background-color: #f7ebad;
     }
 
     a {
@@ -216,7 +216,7 @@ export default {
 
       &:hover {
         span {
-          color: #ff6700;
+          color: #df9eec;
         }
       }
     }

@@ -67,7 +67,7 @@
       
       <!-- 新增文章区域 -->
       <el-dialog
-          title="添加文章"
+          title="发布话题"
           :visible.sync="addDialogVisible"
           width="60%"
           @close="addDialogClosed"
@@ -89,10 +89,10 @@
             </el-form-item>
           </el-form>
           <!-- 内容底部区域 -->
-          <span slot="footer" class="dialog-footer">
-            <el-button @click="addDialogVisible = false">取消</el-button>
-            <el-button type="primary" @click="addArticle">确定</el-button>
-          </span>
+          <div slot="footer" style="padding-bottom: 60px;">
+            <button class="btn" @click="addDialogVisible = false">取消</button>
+            <button class="btn" type="primary" @click="addArticle">确定</button>
+          </div>
         </el-dialog>
       
     </div>
@@ -185,13 +185,13 @@ import axios from 'axios';
       },
       //最热
       getArticleHot(){
-        this.$http.get("article/getArticleByHot").then(res=>{
+        this.$http.get("article/getArticleByHot",{params:this.queryInfo}).then(res=>{
           this.articleList=res.data.data;
         })
       },
       //最新
       getArticleNew(){
-        this.$http.get("article/getArticleByTime").then(res=>{
+        this.$http.get("article/getArticleByTime",{params:this.queryInfo}).then(res=>{
           this.articleList=res.data.data;
         })
       },
@@ -250,6 +250,40 @@ import axios from 'axios';
     color: blue; /*鼠标移动到链接的颜色*/
   }
 
+}
+
+//回复按钮
+.btn {
+ background-image: linear-gradient(45deg, #b5f1da 0%, #a2f8f1  51%, #f7f19c  100%)
+}
+
+.btn {
+  float: right;
+  width: 100px;
+  height: 45px;
+ margin: 10px;
+ padding: 1px 30px;
+ text-align: center;
+ text-transform: uppercase;
+ transition: 0.5s;
+ background-size: 200% auto;
+ color: rgb(22, 21, 21);
+ border-radius: 10px;
+ display: block;
+ border: 0px;
+ font-weight: 700;
+ box-shadow: 0px 0px 14px -7px #f5cc92;
+}
+
+.btn:hover {
+ background-position: right center;
+ /* change the direction of the change here */
+ color: #fff;
+ text-decoration: none;
+}
+
+.btn:active {
+ transform: scale(0.95);
 }
 </style>
   

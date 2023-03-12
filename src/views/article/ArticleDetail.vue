@@ -1,10 +1,13 @@
 <template>
     <div style="color #666">
+      <div style="float: left;padding-top:30px;margin-left:20px">
+        <span><a style="cursor: pointer;" href="/front/article">返回</a></span>
+      </div>
       <div style="margin: 20px 0;">
         <div class="pd-10" style="font-size:40px;color: #3f5efb;text-align: center;">{{article.name}}</div>
-            <div style="font-size: 20px;margin-top: 10px;text-align: center;">
-              <span>发布人：{{article.nickname}}</span>
-            </div>
+        <div style="font-size: 20px;margin-top: 10px;text-align: center;">
+          <span>发布人：{{article.nickname}}</span>
+        </div>
       </div>
       <div style="margin: 20px 0;">
         <mavon-editor 
@@ -38,7 +41,7 @@
         </div>
 
         <!-- 评论列表 -->
-        <div style="padding-top: 40px;">
+        <div v-if="comments.length!=0" style="padding-top: 40px;">
           <div v-for="item in comments" :key="item.id" style="border-bottom: 1px solid #ccc;padding: 10px 0;">
             <div style="display: flex;">
               <!--头像-->
@@ -91,6 +94,11 @@
 
           </div>
         </div>
+        <div v-else>
+        <div class="no-comment">
+          <span>暂时没有人评论，快来占领沙发吧~</span>     
+        </div>
+      </div>
       </div>
 
       <el-dialog title="回复" :visible.sync="viewDialogVisible" width="50%">
@@ -101,10 +109,10 @@
             <VEmojiPicker v-show="showEmojiDialogReply" @select="selectEmojiReply"/>
           </el-form-item>
         </el-form>
-        <div slot="footer" class="dialog-footer">
-            <el-button @click="viewDialogVisible=false" >取消</el-button>
-            <el-button type="primary" @click="saveComment">确定</el-button>
-          </div>
+        <div slot="footer" style="padding-bottom: 60px;">
+          <button class="btn2" @click="saveComment">确定</button>
+          <button class="btn2" @click="viewDialogVisible=false" >取消</button>
+        </div>
       </el-dialog>
 
     </div>
@@ -264,5 +272,47 @@
 	background-color:rgba(0,180,100,0.1);
 	color:rgb(0,0,0);	
 }
-  </style>
+
+
+//回复按钮
+.btn2 {
+ background-image: linear-gradient(45deg, #b5f1da 0%, #a2f8f1  51%, #f7f19c  100%)
+}
+
+.btn2 {
+  float: right;
+  width: 100px;
+  height: 45px;
+ margin: 10px;
+ padding: 1px 30px;
+ text-align: center;
+ text-transform: uppercase;
+ transition: 0.5s;
+ background-size: 200% auto;
+ color: rgb(22, 21, 21);
+ border-radius: 10px;
+ display: block;
+ border: 0px;
+ font-weight: 700;
+ box-shadow: 0px 0px 14px -7px #f5cc92;
+}
+
+.btn2:hover {
+ background-position: right center;
+ /* change the direction of the change here */
+ color: #fff;
+ text-decoration: none;
+}
+
+.btn2:active {
+ transform: scale(0.95);
+}
+.no-comment{
+  padding-top: 100px;
+  text-align: center;
+  color:aqua;
+  padding-bottom: 200px;
+  font-size: 40px;
+}
+</style>
   
