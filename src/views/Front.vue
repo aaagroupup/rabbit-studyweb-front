@@ -23,10 +23,10 @@
             <el-menu-item index="/front/shoppingCart" class="iconfont icon-gouwuche" style="float: right;margin-right: 20px;">购物车</el-menu-item>
         </el-menu>
         </div>
-        <div style="width: 200px;">
+        <div style="width: 240px;">
             <div v-if="!user.username" style="text-align:right;padding-right: 30px;">
-                <el-button @click="$router.push('/login')">登录</el-button>
-                <el-button @click="$router.push('/register')">注册</el-button>
+                <button class="btn" @click="$router.push('/login')" style="float: left;"><span>登录</span></button>
+                <button class="btn"  @click="$router.push('/register')" style="float: right;"><span>注册</span></button>
             </div>
             <div v-else>
                 <el-dropdown class="dropdown">
@@ -46,9 +46,7 @@
                 <div class="logout">
                     <a style="cursor: pointer;font-size: 14px;" @click="logout">退出</a>
                 </div>
-                
             </div>
-            
         </div>
     </div>
     
@@ -131,10 +129,51 @@ export default {
 }
 .logout{
     float: right;
-    margin-right: 70px;
+    margin-right: 90px;
     
 }
 a:hover{
         color:red;
     }
+/* From www.lingdaima.com */
+.btn {
+ display: inline-block;
+ border-radius: 4px;
+ background-color: #a49ff0;
+ border: none;
+ color: #FFFFFF;
+ text-align: center;
+ font-size: 17px;
+ padding: 16px;
+ width: 90px;
+ transition: all 0.5s;
+ cursor: pointer;
+ margin: 5px;
+ height: 50px;
+}
+
+.btn span {
+ cursor: pointer;
+ display: inline-block;
+ position: relative;
+ transition: 0.5s;
+}
+
+.btn span:after {
+ content: '»';
+ position: absolute;
+ opacity: 0;
+ top: 0;
+ right: -15px;
+ transition: 0.5s;
+}
+
+.btn:hover span {
+ padding-right: 15px;
+}
+
+.btn:hover span:after {
+ opacity: 1;
+ right: 0;
+}    
 </style>

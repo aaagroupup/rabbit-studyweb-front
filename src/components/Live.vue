@@ -10,7 +10,7 @@
     <el-card>
       <el-row :gutter="25"
         ><!--间隙-->
-        <el-button style="float: right;margin-right: 80px;" type="primary" @click="showAddDialog()"> 添加直播课程 </el-button>
+        <el-button style="float: right;margin-right: 80px;" type="warning" @click="showAddDialog()"> 添加直播课程 </el-button>
       </el-row>
 
       <!-- 课程列表 border边框 stripe隔行变色 -->
@@ -169,8 +169,8 @@
         </el-form>
         <!-- 内容底部区域 -->
         <span slot="footer" class="dialog-footer">
-          <el-button @click="addDialogVisible = false">取消</el-button>
-          <el-button type="primary" @click="addLive">确定</el-button>
+          <el-button type="info" @click="addDialogVisible = false">取消</el-button>
+          <el-button type="success" @click="addLive">确定</el-button>
         </span>
       </el-dialog>
 
@@ -252,8 +252,8 @@
         </el-form>
         <!-- 内容底部区域 -->
         <span slot="footer" class="dialog-footer">
-          <el-button @click="updateDialogVisible = false">取消</el-button>
-          <el-button type="primary" @click="updateLiveInfo">确定</el-button>
+          <el-button type="info" @click="updateDialogVisible = false">取消</el-button>
+          <el-button type="success" @click="updateLiveInfo">确定</el-button>
         </span>
       </el-dialog>
 
@@ -565,6 +565,21 @@ export default {
   margin-bottom: 15px;
   font-size: 17px;
 }
+/deep/.el-button.el-button--warning{
+  background:#84d3eb !important;
+  border-color:#84d3eb;
+}
+
+/deep/.el-button.el-button--info{
+  background:#817278 !important;
+  border-color:#817278;
+}
+
+/deep/.el-button.el-button--success{
+  background:#b7f082 !important;
+  border-color:#b7f082;
+}
+
 
 /* 添加 */
 .addBrand-container .avatar-uploader .el-upload {

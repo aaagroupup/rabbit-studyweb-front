@@ -13,13 +13,12 @@
         <el-col :span="10"> <!--列宽-->
           <!-- 搜索区域 -->
           <!-- 搜索添加 -->
-          <el-input placeholder="请输入搜索内容" v-model="queryInfo.query" clearable @clear="getUserList" @keyup.enter.native="getUserList">
-            <el-button slot="append" icon="el-icon-search" @click="getUserList"  ></el-button>
+          <el-input placeholder="请输入搜索内容" prefix-icon="el-icon-search" v-model="queryInfo.query" clearable @clear="getUserList" @keyup.enter.native="getUserList">
           </el-input>
         </el-col>
         <!-- 搜索按钮 -->
         <el-col :span="4">
-          <el-button type="primary" @click="addDialogVisible = true">
+          <el-button type="warning" @click="addDialogVisible = true">
             添加用户
           </el-button>
         </el-col>
@@ -102,8 +101,8 @@
         </el-form>
         <!-- 内容底部区域 -->
         <span slot="footer" class="dialog-footer">
-          <el-button @click="addDialogVisible=false">取消</el-button>
-          <el-button type="primary" @click="addUser">确定</el-button>
+          <el-button type="info" @click="addDialogVisible=false">取消</el-button>
+          <el-button type="success" @click="addUser">确定</el-button>
         </span>
       </el-dialog>
       
@@ -139,8 +138,8 @@
         </el-form>
         <!-- 内容底部区域 -->
         <span slot="footer" class="dialog-footer">
-          <el-button @click="updateDialogVisible=false">取消</el-button>
-          <el-button type="primary" @click="updateUserInfo">确定</el-button>
+          <el-button type="info" @click="updateDialogVisible=false">取消</el-button>
+          <el-button type="success" @click="updateUserInfo">确定</el-button>
         </span>
       </el-dialog>
 
@@ -317,8 +316,19 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.el-breadcrumb {
-  margin-bottom: 15px;
-  font-size: 17px;
+/deep/.el-button.el-button--warning{
+  background:#84d3eb !important;
+  border-color:#84d3eb;
 }
+
+/deep/.el-button.el-button--info{
+  background:#817278 !important;
+  border-color:#817278;
+}
+
+/deep/.el-button.el-button--success{
+  background:#b7f082 !important;
+  border-color:#b7f082;
+}
+
 </style>

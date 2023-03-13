@@ -11,20 +11,16 @@
               placeholder="请输入搜索内容"
               v-model="queryInfo.query"
               clearable
+              prefix-icon="el-icon-search"
               @clear="getTeacherList"
               @keyup.enter.native="getTeacherList"
             >
-              <el-button
-                slot="append"
-                icon="el-icon-search"
-                @click="getTeacherList"
-              ></el-button>
             </el-input>
           </el-col>
   
           <!-- 添加按钮 -->
           <el-col :span="4">
-            <el-button type="primary" @click="addDialogVisible = true">
+            <el-button type="warning" @click="addDialogVisible = true">
               添加讲师
             </el-button>
           </el-col>
@@ -122,8 +118,8 @@
           </el-form>
           <!-- 内容底部区域 -->
           <span slot="footer" class="dialog-footer">
-            <el-button @click="addDialogVisible = false">取消</el-button>
-            <el-button type="primary" @click="addTeacher">确定</el-button>
+            <el-button type="info" @click="addDialogVisible = false">取消</el-button>
+            <el-button type="success" @click="addTeacher">确定</el-button>
           </span>
         </el-dialog>
   
@@ -169,8 +165,8 @@
           </el-form>
           <!-- 内容底部区域 -->
           <span slot="footer" class="dialog-footer">
-            <el-button @click="updateDialogVisible = false">取消</el-button>
-            <el-button type="primary" @click="updateTeacherInfo">确定</el-button>
+            <el-button type="info" @click="updateDialogVisible = false">取消</el-button>
+            <el-button type="success" @click="updateTeacherInfo">确定</el-button>
           </span>
         </el-dialog>
     </div>
@@ -338,6 +334,21 @@
   
   <style lang="less" scoped>
   
+  /deep/.el-button.el-button--warning{
+  background:#84d3eb !important;
+  border-color:#84d3eb;
+}
+
+/deep/.el-button.el-button--info{
+  background:#817278 !important;
+  border-color:#817278;
+}
+
+/deep/.el-button.el-button--success{
+  background:#b7f082 !important;
+  border-color:#b7f082;
+}
+
   /* 添加 */
   .addBrand-container .avatar-uploader .el-upload {
     border: 1px dashed #d9d9d9;

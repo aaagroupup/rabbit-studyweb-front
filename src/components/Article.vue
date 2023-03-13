@@ -12,20 +12,16 @@
               placeholder="请输入搜索内容"
               v-model="queryInfo.query"
               clearable
+              prefix-icon="el-icon-search"
               @clear="getArticleList"
               @keyup.enter.native="getArticleList"
             >
-              <el-button
-                slot="append"
-                icon="el-icon-search"
-                @click="getArticleList"
-              ></el-button>
             </el-input>
           </el-col>
   
           <!-- 添加按钮 -->
           <el-col :span="4">
-            <el-button type="primary" @click="addDialogVisible = true">
+            <el-button type="warning" @click="addDialogVisible = true">
               添加文章
             </el-button>
           </el-col>
@@ -39,7 +35,7 @@
           
           <el-table-column label="文章内容" prop="content">
             <template slot-scope="scope">
-              <el-button @click="view(scope.row.content)" type="primary">查看内容</el-button>
+              <el-button @click="view(scope.row.content)" type="warning">查看内容</el-button>
             </template>
           </el-table-column>
           <el-table-column label="用户昵称" prop="nickname"></el-table-column>
@@ -116,8 +112,8 @@
           </el-form>
           <!-- 内容底部区域 -->
           <span slot="footer" class="dialog-footer">
-            <el-button @click="addDialogVisible = false">取消</el-button>
-            <el-button type="primary" @click="addArticle">确定</el-button>
+            <el-button type="info" @click="addDialogVisible = false">取消</el-button>
+            <el-button type="success" @click="addArticle">确定</el-button>
           </span>
         </el-dialog>
   
@@ -157,8 +153,8 @@
           </el-form>
           <!-- 内容底部区域 -->
           <span slot="footer" class="dialog-footer">
-            <el-button @click="updateDialogVisible = false">取消</el-button>
-            <el-button type="primary" @click="updateArticleInfo">确定</el-button>
+            <el-button type="info" @click="updateDialogVisible = false">取消</el-button>
+            <el-button type="success" @click="updateArticleInfo">确定</el-button>
           </span>
         </el-dialog>
 
@@ -359,11 +355,21 @@
   };
   </script>
   
-  <style lang="less" scoped>
-  .el-breadcrumb {
-    margin-bottom: 15px;
-    font-size: 17px;
-  }
+<style lang="less" scoped>
+/deep/.el-button.el-button--warning{
+  background:#84d3eb !important;
+  border-color:#84d3eb;
+}
+
+/deep/.el-button.el-button--info{
+  background:#817278 !important;
+  border-color:#817278;
+}
+
+/deep/.el-button.el-button--success{
+  background:#b7f082 !important;
+  border-color:#b7f082;
+}
   
   /* 添加 */
   .addBrand-container .avatar-uploader .el-upload {

@@ -24,11 +24,11 @@
           </el-form-item>
 
           <el-form-item>
-            <el-button style="margin-left: 20px;" type="primary" icon="el-icon-search" @click="getCourseList()">查询</el-button>
-            <el-button  style="margin-left: 20px;" type="default" @click="resetData()">清空</el-button> 
+            <el-button style="margin-left: 20px;" type="warning" icon="el-icon-search" @click="getCourseList()">查询</el-button>
+            <el-button  style="margin-left: 20px;" type="info" @click="resetData()">清空</el-button> 
           </el-form-item> 
-          <el-button style="float: right;margin-right: 20px;" type="primary" @click="addDialogVisible = true"> 添加课程 </el-button> 
-          <el-button style="float: left;margin-left: 10px;" type="primary" @click="batchRemove()"> 删除选中 </el-button>
+          <el-button style="float: right;margin-right: 20px;" type="warning" @click="addDialogVisible = true"> 添加课程 </el-button> 
+          <el-button style="float: left;margin-left: 10px;" type="info" @click="batchRemove()"> 删除选中 </el-button>
         </el-form>
       </el-row>
 
@@ -174,8 +174,8 @@
         </el-form>
         <!-- 内容底部区域 -->
         <span slot="footer" class="dialog-footer">
-          <el-button @click="addDialogVisible = false">取消</el-button>
-          <el-button type="primary" @click="addCourse">确定</el-button>
+          <el-button type="info" @click="addDialogVisible = false">取消</el-button>
+          <el-button type="success" @click="addCourse">确定</el-button>
         </span>
       </el-dialog>
 
@@ -224,8 +224,8 @@
         </el-form>
         <!-- 内容底部区域 -->
         <span slot="footer" class="dialog-footer">
-          <el-button @click="updateDialogVisible = false">取消</el-button>
-          <el-button type="primary" @click="updateCourseInfo">确定</el-button>
+          <el-button type="info" @click="updateDialogVisible = false">取消</el-button>
+          <el-button type="success" @click="updateCourseInfo">确定</el-button>
         </span>
       </el-dialog>
       <!-- 上传视频 -->
@@ -259,8 +259,8 @@
           </el-form-item>
         </el-form>
         <div slot="footer" class="dialog-footer">
-            <el-button @click="close()">取消</el-button>
-            <el-button type="primary" @click="saveOrUpdate()">确定</el-button>
+            <el-button type="info" @click="close()">取消</el-button>
+            <el-button type="success" @click="saveOrUpdate()">确定</el-button>
           </div>
       </el-dialog>
       <!-- 详情页面 -->
@@ -288,7 +288,7 @@
           </el-form-item>
           <el-button
             :disabled="btnDisabled"
-            type="primary"
+            type="warning"
             icon="el-icon-search"
             @click="showDetail()"
           >
@@ -719,10 +719,21 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.el-breadcrumb {
-  margin-bottom: 15px;
-  font-size: 17px;
+/deep/.el-button.el-button--warning{
+  background:#84d3eb !important;
+  border-color:#84d3eb;
 }
+
+/deep/.el-button.el-button--info{
+  background:#817278 !important;
+  border-color:#817278;
+}
+
+/deep/.el-button.el-button--success{
+  background:#b7f082 !important;
+  border-color:#b7f082;
+}
+
 
 /* 添加 */
 .addBrand-container .avatar-uploader .el-upload {

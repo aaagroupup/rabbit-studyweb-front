@@ -43,10 +43,10 @@
           </el-form-item>
 
           <el-form-item>
-            <el-button style="margin-left: 20px;" type="primary" icon="el-icon-search" @click="getOrderList()">查询</el-button>
+            <el-button style="margin-left: 20px;" type="warning" icon="el-icon-search" @click="getOrderList()">查询</el-button>
             <el-button type="default" @click="resetData()">清空</el-button> 
           </el-form-item> 
-          <el-button style="margin-left: 10px;" type="primary" @click="batchRemove()">删除选中</el-button>
+          <el-button style="margin-left: 10px;" type="info" @click="batchRemove()">删除选中</el-button>
         </el-form>
       </el-row>
 
@@ -208,9 +208,15 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.el-breadcrumb {
-  margin-bottom: 15px;
-  font-size: 17px;
+
+/deep/.el-button.el-button--warning{
+  background:#84d3eb !important;
+  border-color:#84d3eb;
+}
+
+/deep/.el-button.el-button--info{
+  background:#817278 !important;
+  border-color:#817278;
 }
 
 /* 添加 */
