@@ -6,8 +6,7 @@
       <div>
         <img src="../assets/img/logo.png" alt  style="width: 200px;height: 150px;"/>
       </div>
-      <span style="padding-left: 30%;">欢迎使用在线学习平台</span>
-      <span><router-link to="/front/home" style="color: red;">点我前往前台页面</router-link></span>
+      <span style="padding-left: 40px;color: #6c7d8d;">欢迎使用在线学习平台</span>
       <button class="custom-btn btn-6" @click="logout">退出</button>
     </el-header>
     <!-- 主体部分 -->
@@ -96,7 +95,7 @@ export default {
 
 // 头部样式
 .el-header {
-  background-color: #b7f1ec;
+  background-color: #b7f1ec;//b7f1ec
   display: flex;
   justify-content: space-between; //左右贴边
   padding-left: 0%; //左边界
@@ -120,7 +119,7 @@ export default {
 }
 // 主体样式
 .el-main {
-  background-color: #ccf3ca;
+  background-color: #eee;
 }
 img {
   width: 55px;
