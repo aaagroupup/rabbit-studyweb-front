@@ -12,7 +12,7 @@ export default {
     data(){
       return{
         backgroundDiv:{
-          backgroundImage: "url(" + require("@/assets/img/404.jpg") + ")",
+          backgroundImage: "url(" + require("@/assets/img/404.jpeg") + ")",
           backgroundRepeat: "no-repeat",
           backgroundSize: "100% 100%",
         }

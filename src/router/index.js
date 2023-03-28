@@ -113,7 +113,7 @@ export const setRoutes = () => {
   //console.log(storeMenus);
   if (storeMenus) {
     //拼装动态路由
-    const manageRoute = {path: "/home",name:'Manage',component: Home, redirect: "/welcome",children: [{ path: "/welcome", component: Welcome }],};
+    const manageRoute = {path: "/home",name:'Manage',component: Home, redirect: "/back",children: [{ path: "/back", component: Welcome }],};
     const menus = JSON.parse(storeMenus);
     menus.forEach((item) => {
       let itemMenu = {path: item.path,name: item.name,component: () => import("../components/" + item.pagePath + ".vue"),children:[]};

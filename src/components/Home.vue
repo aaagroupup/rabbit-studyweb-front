@@ -4,9 +4,9 @@
     <!-- 头部 -->
     <el-header style="height: 70px;">
       <div>
-        <img src="../assets/img/logo.png" alt  style="width: 200px;height: 150px;"/>
+       <span style="color: #6c7d8d;">在线学习平台后台管理系统</span>
       </div>
-      <span style="padding-left: 40px;color: #6c7d8d;">欢迎使用在线学习平台</span>
+      <span style="padding-left: 40px;color: #6c7d8d;">欢迎您,{{ user.username }}</span>
       <button class="custom-btn btn-6" @click="logout">退出</button>
     </el-header>
     <!-- 主体部分 -->
@@ -48,7 +48,8 @@ export default {
       //菜单列表
       menuList:[],
       isCollapse:false,//伸缩
-      activePath:'/welcome',//默认路径
+      activePath:'/back',//默认路径
+      user:sessionStorage.getItem("user")?JSON.parse(sessionStorage.getItem("user")):{},
     }
   },
   created(){

@@ -1,5 +1,10 @@
 <template>
   <div>
+    <el-breadcrumb>
+      <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
+      <el-breadcrumb-item :to="{path: '/subject'}">课程管理</el-breadcrumb-item>
+      <el-breadcrumb-item :to="{path: ''}">课程列表</el-breadcrumb-item>
+    </el-breadcrumb>
     <el-card>
       <el-row :gutter="25"
         ><!--间隙-->
@@ -307,7 +312,7 @@ import * as echarts from 'echarts';
 export default {
   data() {
     return {
-      baseUrl:"http://localhost:9381/",
+      baseUrl:"http://121.199.32.66:9381/",
       multipleSelection:[],//多选框
       teacherList:[],
       subjectList:[],
@@ -315,7 +320,7 @@ export default {
       searchData:{
         subjectId:'',//解决查询表单无法选择第二级别
       },
-      uploadUrl:this.baseUrl+"common/upload?name=",
+      uploadUrl:"http://121.199.32.66:9381/common/upload?name=",
       downloadUrl: 'https://rabbit-studyweb.oss-cn-hangzhou.aliyuncs.com/',
       imageUrl:'',
       courseList: [], //课程列表
@@ -732,6 +737,10 @@ export default {
 /deep/.el-button.el-button--success{
   background:#b7f082 !important;
   border-color:#b7f082;
+}
+.el-breadcrumb {
+  margin-bottom: 15px;
+  font-size: 17px;
 }
 
 

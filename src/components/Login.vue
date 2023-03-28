@@ -77,8 +77,8 @@ export default {
       },
       //表单数据对象
       loginForm: {
-        username: "admin001",
-        password: "12345a",
+        username: "",
+        password: "",
       },
       telForm:{
         telephone:'',

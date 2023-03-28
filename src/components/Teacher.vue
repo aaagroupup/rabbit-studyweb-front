@@ -1,5 +1,12 @@
 <template>
     <div>
+      <!-- 面包屑导航 -->
+      <el-breadcrumb separator="/">
+        <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
+        <el-breadcrumb-item :to="{path: '/article'}">话题与公告</el-breadcrumb-item>
+        <el-breadcrumb-item :to="{path: '/order'}">订单管理</el-breadcrumb-item>
+        <el-breadcrumb-item :to="{path: '/teacher'}">讲师管理</el-breadcrumb-item>
+      </el-breadcrumb>
       <el-card>
         <el-row :gutter="25"
           ><!--间隙-->
@@ -176,7 +183,7 @@
   export default {
     data() {
       return {
-        uploadUrl:"http://localhost:9381/common/upload?name=",
+        uploadUrl:"http://121.199.32.66:9381/common/upload?name=",
         downloadUrl: 'https://rabbit-studyweb.oss-cn-hangzhou.aliyuncs.com/',
         //查询信息实体
         queryInfo: {
@@ -347,6 +354,10 @@
 /deep/.el-button.el-button--success{
   background:#b7f082 !important;
   border-color:#b7f082;
+}
+.el-breadcrumb {
+  margin-bottom: 15px;
+  font-size: 17px;
 }
 
   /* 添加 */

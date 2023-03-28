@@ -4,10 +4,9 @@
     <div class="container_head">
         <div class="head_left">
             <div style="width: 60px;">
-                <img src="../assets/img/卖萌.gif" style="width: 50px;position: relative;top:5px"/>
+               
             </div>
-            
-            <div style="flex: 1;">好好学习平台</div>
+            <div style="flex: 1;"></div>
         </div>
         <div style="flex:1">
         <!-- 导航菜单 -->
@@ -98,7 +97,7 @@ export default {
     border-bottom: 1px solid #eee;
 }
 .head_left{
-    width: 300px;
+    width: 600px;
     display: flex;
     padding-left: 30px;
 }

@@ -1,5 +1,10 @@
 <template>
     <div>
+      <el-breadcrumb>
+        <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
+        <el-breadcrumb-item :to="{path: '/course'}">课程列表</el-breadcrumb-item>
+        <el-breadcrumb-item :to="{path: ''}">课程管理</el-breadcrumb-item>
+      </el-breadcrumb>
       <el-card>
         <el-row :gutter="25">
             <el-col :span="10">
@@ -45,7 +50,7 @@
       return {
        dialogImportVisible:false,
         subjectList: [], //课程列表
-        baseUrl:"http://localhost:9381/",
+        baseUrl:"http://121.199.32.66:9381/",
         importUrl:"http://localhost:9381/subject/importData"
       };
     },

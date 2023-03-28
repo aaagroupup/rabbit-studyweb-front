@@ -1,5 +1,12 @@
 <template>
     <div>
+      <!-- 面包屑导航 -->
+      <el-breadcrumb separator="/">
+        <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
+        <el-breadcrumb-item :to="{path: '/order'}">订单管理</el-breadcrumb-item>
+        <el-breadcrumb-item :to="{path: '/teacher'}">讲师管理</el-breadcrumb-item>
+        <el-breadcrumb-item :to="{path: '/article'}">话题与公告</el-breadcrumb-item>
+      </el-breadcrumb>
       <!--文章列表主体 -->
       <el-card>
         <el-row :gutter="25"
@@ -249,7 +256,7 @@
         var formData = new FormData();
         formData.append("file",$file);
         let instance= axios.create({
-          baseURL: 'http://localhost:9381',
+          baseURL: 'http://121.199.32.66:9381',
           data: formData,        
           headers: { 'Content-Type': 'multipart/form-data'}
         })
@@ -369,6 +376,10 @@
 /deep/.el-button.el-button--success{
   background:#b7f082 !important;
   border-color:#b7f082;
+}
+.el-breadcrumb {
+  margin-bottom: 15px;
+  font-size: 17px;
 }
   
   /* 添加 */

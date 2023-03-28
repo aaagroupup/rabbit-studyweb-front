@@ -160,7 +160,7 @@ import axios from 'axios';
         formData.append('file',$file)
         //必须使用原生axios
         let instance= axios.create({
-          baseURL: 'http://localhost:9381',
+          baseURL: 'http://121.199.32.66:9381',
           data: formData,        
           headers: { 'Content-Type': 'multipart/form-data'}
         })

@@ -1,12 +1,12 @@
 <template>
   <div>
     <!-- 面包屑导航 -->
-    <!-- <el-breadcrumb separator="/">
+    <el-breadcrumb separator="/">
       <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
-      <el-breadcrumb-item :to="{path: '/role'}">修改权限</el-breadcrumb-item>
-
-      <el-breadcrumb-item :to="{path: '/goods'}">商品模块</el-breadcrumb-item>
-    </el-breadcrumb> -->
+      <el-breadcrumb-item :to="{path: '/role'}">角色管理</el-breadcrumb-item>
+      <el-breadcrumb-item :to="{path: '/menu'}">菜单管理</el-breadcrumb-item>
+      <el-breadcrumb-item :to="{path: ''}">用户管理</el-breadcrumb-item>
+    </el-breadcrumb>
     <!--用户列表主体 -->
     <el-card>
       <el-row :gutter="25"><!--间隙-->
@@ -29,10 +29,9 @@
         <el-table-column type="index" label="编号"></el-table-column><!--索引列  -->
         <el-table-column label="用户名" prop="username" ></el-table-column>
         <el-table-column label="邮箱" prop="email" ></el-table-column>
-        <el-table-column label="密码" prop="password" ></el-table-column>
         <el-table-column label="手机号" prop="telephone" ></el-table-column>
         <el-table-column label="昵称" prop="nickname" ></el-table-column>
-        <el-table-column label="角色" prop="role">
+        <el-table-column label="角色" prop="roleName">
         </el-table-column>
         <el-table-column label="状态" prop="state" >
           <!-- 作用域插槽 -->
@@ -94,8 +93,8 @@
           </el-form-item>
           <!-- 角色 -->
           <el-form-item label="角色">
-            <el-select clearable v-model="addForm.role" placeholder="请选择角色">
-              <el-option v-for="item in roles" :key="item.name" :label="item.name" :value="item.name"></el-option>
+            <el-select clearable v-model="addForm.roleId" placeholder="请选择角色">
+              <el-option v-for="item in roles" :key="item.name" :label="item.name" :value="item.id"></el-option>
             </el-select>
           </el-form-item>
         </el-form>
@@ -112,11 +111,7 @@
           <!-- 用户名 -->
           <el-form-item label="用户名" prop="username">
             <el-input v-model="updateForm.username" disabled></el-input>
-          </el-form-item>
-          <!-- 密码 -->
-          <el-form-item label="密码" prop="password">
-            <el-input v-model="updateForm.password"></el-input>
-          </el-form-item>
+          </el-form-item> 
           <!-- 邮箱 -->
           <el-form-item label="邮箱" prop="email">
             <el-input v-model="updateForm.email"></el-input>
@@ -131,8 +126,8 @@
           </el-form-item>
           <!-- 角色 -->
           <el-form-item label="角色">
-            <el-select clearable v-model="updateForm.role" placeholder="请选择角色">
-              <el-option v-for="item in roles" :key="item.name" :label="item.name" :value="item.name"></el-option>
+            <el-select clearable v-model="updateForm.roleId" placeholder="请选择角色">
+              <el-option v-for="item in roles" :key="item.name" :label="item.name" :value="item.id"></el-option>
             </el-select>
           </el-form-item>
         </el-form>
@@ -329,6 +324,11 @@ export default {
 /deep/.el-button.el-button--success{
   background:#b7f082 !important;
   border-color:#b7f082;
+}
+
+.el-breadcrumb {
+  margin-bottom: 15px;
+  font-size: 17px;
 }
 
 </style>

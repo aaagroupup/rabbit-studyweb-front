@@ -10,7 +10,7 @@
         <template slot-scope="{ row }">
             <el-image style="width: 100px; height: 100px; border:none;cursor: pointer;" 
             :src="getImage(row.image)" 
-            :preview-src-list="[ `http://localhost:9383/common/upload?name=${row.image}` ]" >
+            >
             <div slot="error" class="image-slot">
               <img src="../assets/img/noImg.png"  style="width: auto; height: 40px; border:none;" >
             </div>  

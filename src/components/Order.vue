@@ -1,5 +1,13 @@
 <template>
   <div>
+    <!-- 面包屑导航 -->
+    <el-breadcrumb separator="/">
+      <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
+      <el-breadcrumb-item :to="{path: '/article'}">话题与公告</el-breadcrumb-item>
+
+      <el-breadcrumb-item :to="{path: '/teacher'}">讲师管理</el-breadcrumb-item>
+      <el-breadcrumb-item :to="{path: '/order'}">订单管理</el-breadcrumb-item>
+    </el-breadcrumb>
     <!--订单列表主体 -->
     <el-card>
       <el-row :gutter="25"
@@ -217,6 +225,11 @@ export default {
 /deep/.el-button.el-button--info{
   background:#817278 !important;
   border-color:#817278;
+}
+
+.el-breadcrumb {
+  margin-bottom: 15px;
+  font-size: 17px;
 }
 
 /* 添加 */
