@@ -175,8 +175,8 @@ export default {
           window.sessionStorage.setItem("menus",JSON.stringify(res.data.menus));//存储菜单
           //动态设置当前用户路由
           setRoutes()
-          // console.log(res.data)
-          if(res.data.role==='普通用户'){
+          //console.log(res.data)
+          if(res.data.roleId===5){
             this.$router.push({ path: "/front/home" }); //页面路由跳转
           }else{
             this.$router.push({ path: "/home" }); //页面路由跳转
